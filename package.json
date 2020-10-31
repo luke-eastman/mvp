@@ -1,0 +1,23 @@
+{
+  "name": "into-the-wild",
+  "version": "1.0.0",
+  "description": "Aggregator of information regarding national parks and forests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luke-eastman/hrr48-mvp.git"
+  },
+  "author": "Luke Eastman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luke-eastman/hrr48-mvp/issues"
+  },
+  "homepage": "https://github.com/luke-eastman/hrr48-mvp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.1"
+  }
+}
