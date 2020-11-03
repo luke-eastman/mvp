@@ -1,10 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+const ClosureDesc = styled.div `
+  margin: 10px;
+`;
 
 const Closure = ({closure}) => {
   return (
-    <div>
+    <ClosureDesc>
       {closure.description}
-    </div>
+    </ClosureDesc>
   )
 }
 

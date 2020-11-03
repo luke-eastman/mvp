@@ -5,10 +5,11 @@ import axios from 'axios';
 import ParksList from './ParksList.jsx';
 
 const Container = styled.div `
-  width: 1000px;
+  width: 1100px;
   position: absolute;
-  left: 100px;
+  left: 75px;
   box-shadow: 5px 5px 200px 5px #888888;
+  margin: 10px 0 30px 0;
 `;
 
 const IntoTheWild = () => {
@@ -44,11 +45,9 @@ const IntoTheWild = () => {
       park.closures = [];
       for (var i = 0; i < closures.length; i++) {
         if (closures[i].parkCode === park.parkCode) {
-          console.log(park.parkCode)
           park.closures.push(closures[i]);
         }
       }
-      console.log(park.closures)
       parksWithClosed.push(park);
     }
     setParksWithClosures(parksWithClosed);
