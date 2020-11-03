@@ -1,8 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const SearchBar = styled.div `
+  position: relative;
+  margin: 15px;
+`;
 
 const Search = ({setLocation}) => {
   return (
-    <div>
+    <SearchBar>
         <form id="stateform"  >
     <select id="states" name="state-list" form="stateform" onChange={(event) => setLocation(event.target.value)}>
       <option value="AL">Alabama</option>
@@ -58,7 +64,7 @@ const Search = ({setLocation}) => {
       <option value="WY">Wyoming</option>
     </select>
     </form>
-    </div>
+    </SearchBar>
   );
 }
 

@@ -1,18 +1,42 @@
 import React from 'react';
+import styled from 'styled-components';
 import Activity from './Activity.jsx';
 import ParkImage from './ParkImage.jsx';
-import Closure from './Closure.jsx';
+import ClosuresList from './ClosuresList.jsx';
+import ActivityList from './ActivityList.jsx';
+
+const Info = styled.div`
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px 5px #888888;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 25px 1fr 1fr;
+`;
+
+const Title = styled.div `
+  font-size: 1.17em;
+  font-weight: bold;
+  grid-column: 1 / span 2;
+`;
+
+const Images = styled.div `
+  grid-row: 3;
+  grid-column: 2;
+`;
+
+
 const ParkInfo = ({park}) => {
   return (
-    <div>
-      <h3>{park.name}</h3>
+    <Info className="park-info">
+      <Title>{park.name}</Title>
       <p>{park.description}</p>
-      {park.activities.map(activity => <Activity activity={activity} />)}
-      {park.images.map(image => <ParkImage imageUrl={image} />)}
-      {park.closures.map(closure => <Closure closure={closure} />)}
-      <hr></hr>
-      <hr></hr>
-    </div>
+      <ActivityList activities={park.activities}/>
+      <ClosuresList closures={park.closures} />
+      <Images>
+        {park.images.map(image => <ParkImage imageUrl={image} />)}
+      </Images>
+    </Info>
   );
 }
 

@@ -1,7 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
 import Search from './Search.jsx';
 import axios from 'axios';
 import ParksList from './ParksList.jsx';
+
+const Container = styled.div `
+  width: 900px;
+  position: absolute;
+  left: 100px;
+  box-shadow: 5px 5px 200px 5px #888888;
+`;
 
 const IntoTheWild = () => {
 
@@ -48,10 +56,10 @@ const IntoTheWild = () => {
   }, [closures])
 
   return (
-    <div>
+    <Container>
       <Search setLocation={setLocation} />
       <ParksList parks={parks}/>
-    </div>
+    </Container>
   );
 }
 
