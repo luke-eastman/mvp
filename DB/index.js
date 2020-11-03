@@ -12,7 +12,11 @@ const parkSchema = new mongoose.Schema({
   parkCode: String,
   description: String,
   latitude: String,
-  longitude: String
+  longitude: String,
+  url: String,
+  activities: [String],
+  cost: String,
+  images: [String]
 })
 const Park = mongoose.model('Park', parkSchema);
 
@@ -32,7 +36,7 @@ const getParksForState = (stateCode) => {
 
 module.exports.getParksForState = getParksForState;
 
-//seed db
+
 // axios({
 //   url: 'https://developer.nps.gov/api/v1/parks',
 //   params: {
@@ -44,6 +48,14 @@ module.exports.getParksForState = getParksForState;
 // .then(parks => {
 //   parks = parks.data.data
 //   for (var i = 0; i < parks.length; i++) {
+//     var images = [];
+//     for (var j = 0; j < parks[i].images.length; j++) {
+//       images.push(parks[i].images[j].url)
+//     }
+//     var activities = [];
+//     for (var j = 0; j < parks[i].activities.length; j++) {
+//       activities.push(parks[i].activities[j].name)
+//     }
 //     Park.create({
 //       id: parks[i].id,
 //       name: parks[i].fullName,
@@ -51,7 +63,9 @@ module.exports.getParksForState = getParksForState;
 //       parkCode: parks[i].parkCode,
 //       description: parks[i].description,
 //       latitude: parks[i].latidude,
-//       longitude: parks[i].longitude
+//       longitude: parks[i].longitude,
+//       images: images,
+//       activities: activities
 //     })
 //     console.log(parks[i].fullName)
 //   }
