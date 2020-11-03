@@ -11,7 +11,7 @@ const Info = styled.div`
   box-shadow: 5px 5px 5px 5px #888888;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 25px 1fr 1fr;
+  grid-template-rows: 25px 125px 1fr;
 `;
 
 const Title = styled.div `
@@ -25,12 +25,15 @@ const Images = styled.div `
   grid-column: 2;
 `;
 
+const Description = styled.p `
+  grid-column: 1 / span 2;
+`;
 
 const ParkInfo = ({park}) => {
   return (
     <Info className="park-info">
       <Title>{park.name}</Title>
-      <p>{park.description}</p>
+      <Description>{park.description}</Description>
       <ActivityList activities={park.activities}/>
       <ClosuresList closures={park.closures} />
       <Images>

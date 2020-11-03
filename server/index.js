@@ -12,7 +12,6 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
 app.get('/parks/:stateCode', (req, res) => {
-  console.log(req.params.stateCode)
   db.getParksForState(req.params.stateCode)
   .then(result => res.send(result))
   .catch(err => {

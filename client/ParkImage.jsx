@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Image = styled.img`
-  grid-column: 2
+  grid-column: 2;
+  width: 100px;
+  height: 100px;
 `;
 
 const ParkImage = ({imageUrl}) => {
   return (
-    <Image src={imageUrl} width="42" height="42"/>
+    <Image src={imageUrl} />
   );
 }
 
