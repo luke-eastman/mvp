@@ -2,7 +2,7 @@ import React from 'react';
 
 const ParkImage = ({imageUrl}) => {
   return (
-    <img src={imageUrl} />
+    <img src={imageUrl} width="42" height="42"/>
   );
 }
 

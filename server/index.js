@@ -26,9 +26,9 @@ app.get('/closures', (req, res) => {
     url: 'https://developer.nps.gov/api/v1/alerts',
     params: {
       api_key: 'hjJxUk9CvTRlbscNW9XWmpPMIZl4ciSsJ8C2XuPe',
-      q: "Park Closure"
+      q: "Park Closure",
+      limit: 2000
     }
-
   })
   .then(parks => {
     res.send(parks.data)
