@@ -56,13 +56,14 @@ module.exports.getParksForState = getParksForState;
 //     for (var j = 0; j < parks[i].activities.length; j++) {
 //       activities.push(parks[i].activities[j].name)
 //     }
+//     console.log(parks[i].latitude)
 //     Park.create({
 //       id: parks[i].id,
 //       name: parks[i].fullName,
 //       states: parks[i].states.split(','),
 //       parkCode: parks[i].parkCode,
 //       description: parks[i].description,
-//       latitude: parks[i].latidude,
+//       latitude: parks[i].latitude,
 //       longitude: parks[i].longitude,
 //       images: images,
 //       activities: activities

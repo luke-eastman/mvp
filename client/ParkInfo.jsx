@@ -4,6 +4,7 @@ import Activity from './Activity.jsx';
 import ParkImage from './ParkImage.jsx';
 import ClosuresList from './ClosuresList.jsx';
 import ActivityList from './ActivityList.jsx';
+import MapComponent from './MapComponent.jsx';
 
 const Info = styled.div`
   margin: 20px;
@@ -30,6 +31,7 @@ const Description = styled.p `
 `;
 
 const ParkInfo = ({park}) => {
+  console.log(park.latitude)
   return (
     <Info className="park-info">
       <Title>{park.name}</Title>
@@ -39,6 +41,7 @@ const ParkInfo = ({park}) => {
       <Images>
         {park.images.map(image => <ParkImage imageUrl={image} />)}
       </Images>
+      <MapComponent latitude={park.latitude} longitude={park.longitude} />
     </Info>
   );
 }
