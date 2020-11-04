@@ -7,9 +7,9 @@ const Image = styled.img`
   height: 100px;
 `;
 
-const ParkImage = ({imageUrl}) => {
+const ParkImage = ({imageUrl, openModal, images}) => {
   return (
-    <Image src={imageUrl} />
+    <Image src={imageUrl} onClick={() => openModal(images)}/>
   );
 }
 

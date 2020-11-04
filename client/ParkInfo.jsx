@@ -30,7 +30,7 @@ const Description = styled.p `
   grid-column: 1 / span 2;
 `;
 
-const ParkInfo = ({park}) => {
+const ParkInfo = ({park, openModal}) => {
   if (park.latitude && park.longitude) {
 
     return (
@@ -40,7 +40,7 @@ const ParkInfo = ({park}) => {
         <ActivityList activities={park.activities}/>
         <ClosuresList closures={park.closures} />
         <Images>
-          {park.images.map(image => <ParkImage imageUrl={image} />)}
+          {park.images.map(image => <ParkImage imageUrl={image} openModal={openModal} images={park.images}/>)}
         </Images>
         <MapComponent latitude={park.latitude} longitude={park.longitude} />
       </Info>
@@ -53,7 +53,7 @@ const ParkInfo = ({park}) => {
         <ActivityList activities={park.activities}/>
         <ClosuresList closures={park.closures} />
         <Images>
-          {park.images.map(image => <ParkImage imageUrl={image} />)}
+          {park.images.map(image => <ParkImage imageUrl={image} openModal={openModal} images={park.images}/>)}
         </Images>
       </Info>
     );

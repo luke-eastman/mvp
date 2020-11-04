@@ -1,8 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
+import Modal from 'react-modal';
+
 import Search from './Search.jsx';
 import axios from 'axios';
 import ParksList from './ParksList.jsx';
+import ParkImage from './ParkImage.jsx';
+import ModalImage from './ModalImage.jsx';
 
 const Container = styled.div `
   width: 1100px;
@@ -11,13 +15,40 @@ const Container = styled.div `
   box-shadow: 5px 5px 200px 5px #888888;
   margin: 10px 0 30px 0;
 `;
-
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    'z-index'             : '1000'
+  }
+};
 const IntoTheWild = () => {
 
   const [location, setLocation] = useState('AL');
   const [parks, setParks] = useState([]);
   const [closures, setClosures] = useState([]);
   const [parksWithClosures, setParksWithClosures] = useState([]);
+
+  const [modalImages, setModalImages] = useState([]);
+  const [modalIsOpen,setIsOpen] = useState(false);
+
+  const openModal = (images) => {
+    setModalImages(images);
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+
   useEffect(() => {
     axios({
       url: '/closures',
@@ -55,8 +86,17 @@ const IntoTheWild = () => {
 
   return (
     <Container>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+        >
+
+          {modalImages.map(image => <ModalImage imageUrl={image}/>)}
+        </Modal>
       <Search setLocation={setLocation} />
-      <ParksList parks={parksWithClosures}/>
+      <ParksList parks={parksWithClosures} openModal={openModal} />
     </Container>
   );
 }

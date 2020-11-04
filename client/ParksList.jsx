@@ -8,10 +8,10 @@ const List = styled.div`
   left: 8%;
 `;
 
-const ParksList = ({parks}) => {
+const ParksList = ({parks, openModal}) => {
   return (
     <List className="parks-list" >
-      {parks.map(park => <ParkInfo park={park} key={park.id}/>)}
+      {parks.map(park => <ParkInfo park={park} key={park.id} openModal={openModal}/>)}
     </List>
   );
 }
