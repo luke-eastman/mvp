@@ -31,19 +31,33 @@ const Description = styled.p `
 `;
 
 const ParkInfo = ({park}) => {
-  console.log(park.latitude)
-  return (
-    <Info className="park-info">
-      <Title>{park.name}</Title>
-      <Description>{park.description}</Description>
-      <ActivityList activities={park.activities}/>
-      <ClosuresList closures={park.closures} />
-      <Images>
-        {park.images.map(image => <ParkImage imageUrl={image} />)}
-      </Images>
-      <MapComponent latitude={park.latitude} longitude={park.longitude} />
-    </Info>
-  );
+  if (park.latitude && park.longitude) {
+
+    return (
+      <Info className="park-info">
+        <Title>{park.name}</Title>
+        <Description>{park.description}</Description>
+        <ActivityList activities={park.activities}/>
+        <ClosuresList closures={park.closures} />
+        <Images>
+          {park.images.map(image => <ParkImage imageUrl={image} />)}
+        </Images>
+        <MapComponent latitude={park.latitude} longitude={park.longitude} />
+      </Info>
+    );
+  } else {
+    return (
+      <Info className="park-info">
+        <Title>{park.name}</Title>
+        <Description>{park.description}</Description>
+        <ActivityList activities={park.activities}/>
+        <ClosuresList closures={park.closures} />
+        <Images>
+          {park.images.map(image => <ParkImage imageUrl={image} />)}
+        </Images>
+      </Info>
+    );
+  }
 }
 
 export default ParkInfo;
